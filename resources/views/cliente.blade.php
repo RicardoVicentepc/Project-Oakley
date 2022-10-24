@@ -1,0 +1,139 @@
+@extends('template.default')
+@section('title')
+<title>Cliente</title>
+@endsection
+
+@section('content')
+<head>
+  <link rel="stylesheet" href="{{url('/css/style.css')}}">
+</head>
+
+<main>
+    <div class="formulario-cliente">
+        <form action="{{url('/cliente/inserir')}}" method="post">
+        {{csrf_field()}}
+        <h1>Cliente</h1>
+
+            <div>
+                <label for="">Nome</label>
+                <input type="text" name="txtNome" placeholder="Nome Completo">
+
+            </div>
+            <div>
+                <label for="">Data de Nascimento</label>
+                <input type="date" placeholder="Data" name="txtDtNasc">
+            </div>
+            <div>
+                <label for="">Estado Civil</label>
+                <input type="text" name="txtEstadoCivil" placeholder="Estado Civil">
+            </div>
+
+            <div>
+                <label for="">Endereço</label>
+                <input type="text" name="txtNomeRua" placeholder="Nome da Rua">
+            </div>
+
+            <div>
+                <label for="">Numero </label>
+                <input type="text" name="txtNumero" placeholder="Numero">
+            </div>
+
+            <div>
+                <label for="">Complemento</label>
+                <input type="text" name="txtComplemento" placeholder="Complemento">
+            </div>
+
+            <div>
+                <label for="">Cep</label>
+                <input type="text" name="txtCep" placeholder="Cep" maxlength="8">
+            </div>
+
+            <div>
+                <label for="">Cidade</label>
+                <input type="text" name="txtCidade" placeholder="Cidade">
+            </div>
+
+            <div>
+                <label for="">Estado</label>
+                <input type="text" name="txtEstado" placeholder="Estado">
+            </div>
+
+            <div>
+                <label for="">RG</label>
+                <input type="text" name="txtRg" placeholder="RG">
+            </div>
+
+            <div>
+                <label for="">CPF</label>
+                <input type="text" name="txtCpf" placeholder="CPF">
+            </div>
+
+            <div>
+                <label for="">Email</label>
+                <input type="emai" name="txtEmail" placeholder="exemplo@gmail.com">
+            </div>
+
+            <div>
+                <label for="">Telefone</label>
+                <input type="text" name="txtFone" placeholder="Telefone" maxlength="10">
+            </div>
+
+            <div>
+                <label for="">Celular</label>
+                <input type="text" name="txtCelular" placeholder="Celular" maxlength="11">
+            </div>
+
+            <div>
+                <button type="submit">Cadastrar</button>
+            </div>
+
+
+
+        </form>
+    </div>
+    <table class="table-cliente ">
+        <thead>
+            <tr style="font-size: 15px;">
+                <th>Id</th>
+                <th style="font-size:15px;">Nome </th>
+                <th>Nascimento</th>
+                <th style="font-size:15px;">E. Civil</th>
+                <th>Endereço</th>
+                <th>Número</th>
+                <th>CEP</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Rg</th>
+                <th>CPF</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Celular</th>
+                <th>excluir</th>               
+            </tr>
+        </thead>   
+        <tbody>
+        @foreach($cliente as $cl)
+            <tr>
+                <td>{{$cl -> idCliente}}</td>
+                <td>{{$cl -> nomeCliente}}</td>
+                <td>{{$cl -> dtNascCliente}}</td>
+                <td>{{$cl -> estadoCivilCliente}}</td>
+                <td>{{$cl -> enderecoCliente}}</td>
+                <td>{{$cl -> numeroCliente}}</td>
+                <td>{{$cl -> cepCliente}}</td>
+                <td>{{$cl -> cidadeCliente}}</td>
+                <td>{{$cl -> estadoCliente}}</td>
+                <td>{{$cl -> rgCliente}}</td>
+                <td>{{$cl -> cpfCliente}}</td>
+                <td>{{$cl -> emailCliente}}</td>
+                <td>{{$cl -> foneCliente}}</td>
+                <td>{{$cl -> celularCliente}}</td>
+                <td><a class="style-delete" href="/cliente/{{$cl->idCliente}}">excluir</a></td>
+                
+            <tr>   
+            @endforeach         
+        </tbody> 
+    </table>
+</main>
+
+@endsection
