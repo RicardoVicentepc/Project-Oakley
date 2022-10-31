@@ -2,30 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\CategoriaModel;
+use App\Models\ClienteModel;
+use App\Models\ProdutoModel​;
+use Illuminate\Support\Facades\DB;
+
+
+
+
+use Illuminate\Http\Request;
 use PDF;
 
- 
-
-class CategoriaController extends Controller
+class PDFController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function generatePDF()
+    {
+        $data = [
+            'title' => 'Dados da Oakley mal renderizados kakakak',
+            'date' => date('m/d/Y'),
+            'categoria' =>$categoria = DB::table('tbcategoria')->pluck('categoria'),
+            'produto' =>$produto = DB::table('tbproduto')->pluck('produto', 'valor'),
+            'cliente' =>$cliente = ClienteModel::all(),
+
+
+        ];
+          
+        $pdf = PDF::loadView('generatePDF', $data);
+    
+        return $pdf->download('RelatorioOakley.pdf');
+    }
     public function index()
     {
-        $search = request('search');
-        if($search) {
-            $categoria = CategoriaModel::where([
-                ['categoria', 'like', '%'. $search .'%' ]
-            ])->get();
-        }else{
-            $categoria = CategoriaModel::all();
-        }
-        return view('categoria', compact('categoria'),['search' => $search] );
+        //
     }
 
     /**
@@ -35,7 +48,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-      
+        //
     }
 
     /**
@@ -46,10 +59,7 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $categoria = new CategoriaModel();
-        $categoria -> categoria = $request->categoria;
-        $categoria -> save();
-        return redirect("/categoria");
+        //
     }
 
     /**
@@ -94,8 +104,6 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        CategoriaModel::where('idCategoria',$id)->delete();
-
-        return redirect("/categoria");
+        //
     }
 }

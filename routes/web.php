@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +61,5 @@ Route::get('/produto/{id}','App\Http\Controllers\ProdutoController@destroy');
 
 Route::post('/pedido/inserir', 'App\Http\Controllers\PedidoController@store');
 Route::get('/pedido/{id}','App\Http\Controllers\PedidoController@destroy');
+
+Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
