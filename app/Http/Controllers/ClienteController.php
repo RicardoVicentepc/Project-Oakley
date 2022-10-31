@@ -42,6 +42,7 @@ class ClienteController extends Controller
         $cliente -> dtNascCliente = $request->txtDtNasc;
         $cliente -> estadoCivilCliente = $request->txtEstadoCivil;
         $cliente -> enderecoCliente = $request->txtNomeRua;
+        $cliente -> bairro = $request->txtBairro;
         $cliente -> numeroCliente = $request->txtNumero;
         $cliente -> cepCliente = $request->txtCep;
         $cliente -> cidadeCliente = $request->txtCidade;

@@ -12,7 +12,7 @@ class ClienteModel extends Model
     protected $filable =
     [
         'idCliente', 'nomeCliente', 'dtNascCliente',
-        'estadoCivilCliente', 'enderecoCliente', 'numeroCliente', 
+        'estadoCivilCliente', 'enderecoCliente','bairro', 'numeroCliente', 
         'cepCliente','cidadeCliente', 'estadoCliente',
         'rgCliente','cpfCliente', 'emailCliente',
         'foneCliente','celularCliente'

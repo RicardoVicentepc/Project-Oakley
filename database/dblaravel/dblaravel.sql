@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Set-2022 às 22:21
+-- Tempo de geração: 31-Out-2022 às 21:38
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -53,6 +53,7 @@ CREATE TABLE `tbcliente` (
   `dtNascCliente` date NOT NULL,
   `estadoCivilCliente` varchar(30) NOT NULL,
   `enderecoCliente` varchar(200) NOT NULL,
+  `bairro` varchar(65) NOT NULL,
   `numeroCliente` int(100) NOT NULL,
   `cepCliente` char(10) NOT NULL,
   `cidadeCliente` varchar(120) NOT NULL,
@@ -68,8 +69,8 @@ CREATE TABLE `tbcliente` (
 -- Extraindo dados da tabela `tbcliente`
 --
 
-INSERT INTO `tbcliente` (`idCliente`, `nomeCliente`, `dtNascCliente`, `estadoCivilCliente`, `enderecoCliente`, `numeroCliente`, `cepCliente`, `cidadeCliente`, `estadoCliente`, `rgCliente`, `cpfCliente`, `emailCliente`, `foneCliente`, `celularCliente`) VALUES
-(5, 'Ricardo Da Silva Vicente', '2005-01-20', 'Solteiro', 'Rua paralela', 12, '04891060', 'São Paulo', 'São Paulo', '00.000.000-0', '111.111.111-11', 'soneca@gmail.com', '1125564665', '11940028922');
+INSERT INTO `tbcliente` (`idCliente`, `nomeCliente`, `dtNascCliente`, `estadoCivilCliente`, `enderecoCliente`, `bairro`, `numeroCliente`, `cepCliente`, `cidadeCliente`, `estadoCliente`, `rgCliente`, `cpfCliente`, `emailCliente`, `foneCliente`, `celularCliente`) VALUES
+(5, 'Ricardo Da Silva Vicente', '2005-01-20', 'Solteiro', 'Rua paralela', '', 12, '04891060', 'São Paulo', 'São Paulo', '00.000.000-0', '111.111.111-11', 'soneca@gmail.com', '1125564665', '11940028922');
 
 -- --------------------------------------------------------
 

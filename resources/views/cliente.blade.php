@@ -1,11 +1,13 @@
 @extends('template.default')
 @section('title')
 <title>Cliente</title>
+<script src="{{url('/js/via-cep.js')}}"></script>
 @endsection
 
 @section('content')
 <head>
   <link rel="stylesheet" href="{{url('/css/style.css')}}">
+ 
 </head>
 
 <main>
@@ -16,7 +18,7 @@
 
             <div>
                 <label for="">Nome</label>
-                <input type="text" name="txtNome" placeholder="Nome Completo">
+                <input type="text" name="txtNome"  placeholder="Nome Completo">
 
             </div>
             <div>
@@ -29,8 +31,18 @@
             </div>
 
             <div>
+                <label for="">Cep</label>
+                <input type="text" name="txtCep" id="cep" placeholder="Cep" maxlength="9" onblur="pesquisacep(this.value);">
+            </div>
+
+            <div>
                 <label for="">Endereço</label>
-                <input type="text" name="txtNomeRua" placeholder="Nome da Rua">
+                <input type="text" name="txtNomeRua" id="rua" placeholder="Nome da Rua">
+            </div>
+
+            <div>
+                <label for="">bairro</label>
+                <input type="text" name="txtBairro" id="bairro" placeholder="Nome do bairro">
             </div>
 
             <div>
@@ -44,18 +56,13 @@
             </div>
 
             <div>
-                <label for="">Cep</label>
-                <input type="text" name="txtCep" placeholder="Cep" maxlength="8">
-            </div>
-
-            <div>
                 <label for="">Cidade</label>
-                <input type="text" name="txtCidade" placeholder="Cidade">
+                <input type="text" name="txtCidade" id="cidade" placeholder="Cidade">
             </div>
 
             <div>
                 <label for="">Estado</label>
-                <input type="text" name="txtEstado" placeholder="Estado">
+                <input type="text" name="txtEstado" id="uf" placeholder="Estado">
             </div>
 
             <div>

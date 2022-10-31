@@ -5,6 +5,38 @@
 <title>Home</title>
 <head>
     <link rel="stylesheet" href="{{url('/css/Home.css')}}">
+     <script src='https://www.gstatic.com/charts/loader.js'></script>
+    <script>
+       google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+    
+        
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          
+          ['Task', 9],
+         
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          slices: {
+            0: { color: 'purple' },
+            1: { color: 'aqua' },
+            2: { color: 'pink' },
+            3: { color: 'orange' }
+
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 </head>
 @endsection
 
@@ -12,12 +44,7 @@
 
 
 <main>
-    <form class="search-container" action="/ass">
-        <h1 class="titleHome">Busque pela a categoria</h1>
-        <input type="text" id="search-bar" placeholder="Buscar">
-        <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
-    </form>
-    
+<div id="piechart" style="width: 900px; height: 500px;"></div>
 </main>
 
 @endsection

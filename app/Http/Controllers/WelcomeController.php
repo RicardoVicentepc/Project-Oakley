@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\CategoriaModel;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
- 
-
-class CategoriaController extends Controller
+class WelcomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +15,15 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $search = request('search');
-        if($search) {
-            $categoria = CategoriaModel::where([
-                ['categoria', 'like', '%'. $search .'%' ]
-            ])->get();
-        }else{
-            $categoria = CategoriaModel::all();
-        }
-        return view('categoria', compact('categoria'),['search' => $search] );
+        $categoria = CategoriaModel::all();
+        $table = DB::table('tbcategoria')
+            ->select('COUNT(categoria) as quantidade, categoria')
+            ->join('tbproduto','tbProduto.idcategoria','=','tbCategoria.idcategoria')
+            ->groupBy('tbcategoria.categoria')
+            ->get();
+
+            return view('categoria', compact('categoria', 'table'));
+   
     }
 
     /**
@@ -34,7 +33,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-      
+        //
     }
 
     /**
@@ -45,10 +44,7 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $categoria = new CategoriaModel();
-        $categoria -> categoria = $request->categoria;
-        $categoria -> save();
-        return redirect("/categoria");
+        //
     }
 
     /**
@@ -93,8 +89,6 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        CategoriaModel::where('idCategoria',$id)->delete();
-
-        return redirect("/categoria");
+        //
     }
 }
