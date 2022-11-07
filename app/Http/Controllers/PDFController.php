@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CategoriaModel;
 use App\Models\ClienteModel;
+use App\Models\PedidoModel;
 use App\Models\ProdutoModel​;
 use Illuminate\Support\Facades\DB;
 
@@ -28,8 +29,6 @@ class PDFController extends Controller
             'categoria' =>$categoria = DB::table('tbcategoria')->pluck('categoria'),
             'produto' =>$produto = DB::table('tbproduto')->pluck('produto', 'valor'),
             'cliente' =>$cliente = ClienteModel::all(),
-
-
         ];
           
         $pdf = PDF::loadView('generatePDF', $data);

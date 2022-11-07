@@ -28,6 +28,18 @@ class CategoriaController extends Controller
         return view('categoria', compact('categoria'),['search' => $search] );
     }
 
+    public function categoria(){
+        $categoria = CategoriaModel::all();
+        return $categoria;
+    }
+    public function categoriaById($id ){
+        $categoria = CategoriaModel::where('idCategoria', '=', $id)->get();
+        return $categoria;
+    }
+    // public function categoriaSalvar(Request $requeste){
+    //     $categoria = new CategoriaModel;
+    // }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -47,7 +59,7 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $categoria = new CategoriaModel();
-        $categoria -> categoria = $request->categoria;
+        $categoria -> categoria = $request->input('categoria');
         $categoria -> save();
         return redirect("/categoria");
     }
@@ -60,7 +72,7 @@ class CategoriaController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -96,6 +108,6 @@ class CategoriaController extends Controller
     {
         CategoriaModel::where('idCategoria',$id)->delete();
 
-        return redirect("/categoria");
+        // return redirect("/categoria");
     }
 }
