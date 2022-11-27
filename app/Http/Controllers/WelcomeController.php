@@ -15,17 +15,20 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $categoria = CategoriaModel::all();
-        $table = DB::table('tbcategoria')
-            ->select('COUNT(categoria) as quantidade, categoria')
-            ->join('tbproduto','tbProduto.idcategoria','=','tbCategoria.idcategoria')
-            ->groupBy('tbcategoria.categoria')
-            ->get();
-
-            return view('categoria', compact('categoria', 'table'));
-   
+        return view('welcome');
     }
-
+    public function qtdProduto(){
+        $countProduto = DB::table('tbproduto')->count();
+            return $countProduto;
+    }
+    public function qtdCategoria(){
+        $countCateogoria = DB::table('tbcategoria')->count();
+            return $countCateogoria;
+    }
+    public function qtdCliente(){
+        $countCliente = DB::table('tbCliente')->count();
+            return $countCliente;
+    }
     /**
      * Show the form for creating a new resource.
      *

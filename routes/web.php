@@ -14,10 +14,9 @@ use App\Http\Controllers\PDFController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/','App\Http\Controllers\WelcomeController@qtdProduto');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','App\Http\Controllers\WelcomeController@index');
 
 Route::get('/contato', function () {
     return view('contato');

@@ -19,15 +19,7 @@ class ProdutoController extends Controller
     {
         //
 
-        $search = request('search');
-        if($search) {
-            $categoria = CategoriaModel::where([
-                ['categoria', 'like', '%'. $search .'%' ]
-            ])->get();
-        }else{
-            $categoria = CategoriaModel::all();
-        }
-        return view('categoria', compact('categoria'),['search' => $search] );
+      
 
         $produto = ProdutoModel​::all();
         $categoria = CategoriaModel::all();
