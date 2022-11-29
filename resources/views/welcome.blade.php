@@ -51,35 +51,70 @@ use Illuminate\Support\Facades\DB;
 <main>
 
 
+<div class="row">
+  <div class="col-sm-5">
+    <canvas id="myChart" style="width:85%;max-width:600px;">
 
-<canvas id="myChart" style="width:100%;max-width:600px; padding: 1.5em;">
+          <script>
+          var xValues = ["Clientes"];
+          <?php  $countCliente = DB::table('tbCliente')->count();?>
+                  var fem = JSON.parse('{!! json_encode($countCliente) !!}');
+          var yValues = [fem];
+          var barColors = ["purple"];
 
-<script>
-var xValues = ["Categoria"];
-<?php  $countCliente = DB::table('tbCliente')->count();?>
-        var fem = JSON.parse('{!! json_encode($countCliente) !!}');
-var yValues = [fem];
-var barColors = ["purple"];
+          new Chart("myChart", {
+            type: "bar",
+            data: {
+              labels: xValues,
+              datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+              }]
+            },
+            options: {
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Clientes cadrastadas"
+              }
+            }
+          });
+          </script>
+      </canvas>
+  </div>
+  <div class="col-sm-5">
+      <canvas id="myChart2" style="width:85%;max-width:600px;">
+          <script>
+          var xValues = ["Produtos"];
+          <?php  $countCliente = DB::table('tbProduto')->count();?>
+                  var fem = JSON.parse('{!! json_encode($countCliente) !!}');
+          var yValues = [fem];
+          var barColors = ["purple"];
 
-new Chart("myChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: "Categorias cadrastadas"
-    }
-  }
-});
-</script>
-</canvas>
+          new Chart("myChart2", {
+            type: "bar",
+            data: {
+              labels: xValues,
+              datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+              }]
+            },
+            options: {
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "Produtos cadrastados"
+              }
+            }
+          });
+          </script>
+    </canvas>
+  </div>
+</div>
+
+
+
 </main>
 
 @endsection
