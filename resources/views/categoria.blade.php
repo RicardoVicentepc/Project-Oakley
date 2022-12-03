@@ -3,7 +3,6 @@
 <title>Categoria</title>
 @endsection
 <head>
-  <link rel="stylesheet" href="{{url('/css/Home.css')}}">
     
 </head>
 @section('content')
