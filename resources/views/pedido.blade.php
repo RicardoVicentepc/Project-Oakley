@@ -83,7 +83,7 @@
                     <select name="produto" id="">
                     <option value="0">Produto</option>
                     @foreach($produto as $p)
-                        <option value="{{$p -> idProduto}}">{{$p -> produto}}</option>
+                        <option value="{{$p -> idProduto}}">{{$p -> valor}}</option>
                     @endforeach
                 </select>
                 </div>
