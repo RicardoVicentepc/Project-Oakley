@@ -70,17 +70,16 @@
             <div class="input-group">
                 <div class="input-box">
                     <label for="firstname">Produto</label>
-                    <select name="produto" id="">
+                    <select name="produto" id="input-linguagem">
                     <option value="0">Produto</option>
                     @foreach($produto as $p)
                         <option value="{{$p -> idProduto}}">{{$p -> produto}}</option>
                     @endforeach
                 </select>
                 </div>
-                
                 <div class="input-box">
                     <label for="number">Valor</label>
-                    <select name="produto" id="">
+                    <select name="produto" id="input-linguagem">
                     <option value="0">Produto</option>
                     @foreach($produto as $p)
                         <option value="{{$p -> idProduto}}">{{$p -> valor}}</option>

@@ -51,6 +51,10 @@ Route::get('/pedido','App\Http\Controllers\PedidoController@index');
 
 Route::post('/categoria/inserir', 'App\Http\Controllers\CategoriaController@store');
 Route::get('/categoria/{id}','App\Http\Controllers\CategoriaController@destroy');
+Route::get('/categoria/ver/{id}','App\Http\Controllers\CategoriaController@show');
+//Route::get('/categoria/{id}','App\Http\Controllers\CategoriaController@edit');
+//Route::get('/categoria/{id}','App\Http\Controllers\CategoriaController@update')->name('alterarCategoria');
+
 
 Route::post('/cliente/inserir', 'App\Http\Controllers\ClienteController@store');
 Route::get('/cliente/{id}','App\Http\Controllers\ClienteController@destroy');

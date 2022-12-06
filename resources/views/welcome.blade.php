@@ -90,7 +90,7 @@ use Illuminate\Support\Facades\DB;
                   var fem = JSON.parse('{!! json_encode($countCliente) !!}');
           var yValues = [fem];
           var barColors = ["purple"];
-
+          
           new Chart("myChart2", {
             type: "bar",
             data: {
@@ -112,9 +112,6 @@ use Illuminate\Support\Facades\DB;
     </canvas>
   </div>
 </div>
-
-
-
 </main>
 
 @endsection
