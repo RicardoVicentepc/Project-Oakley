@@ -108,6 +108,6 @@ class CategoriaController extends Controller
     {
         CategoriaModel::where('idCategoria',$id)->delete();
 
-        // return redirect("/categoria");
+        return redirect("/categoria");
     }
 }

@@ -20,10 +20,7 @@
                 {{csrf_field()}}
                 <div class="form-header">
                     <div class="title">
-                        <h1>Cadastre-se</h1>
-                    </div>
-                    <div class="login-button">
-                        <button><a href="#">Entrar</a></button>
+                        <h1>Cadastro Cliente</h1>
                     </div>
                 </div>
 
@@ -34,7 +31,7 @@
                     </div>
                     <div class="input-box">
                         <label for="firstname">Genero</label>
-                        <input type="text" name="txtNome" placeholder="Genero">
+                        <input type="text" name="txtGenero" placeholder="Genero">
                     </div>
                     <div class="input-box">
                         <label for="lastname">Data</label>
@@ -89,7 +86,6 @@
                     <div class="input-box">
                         <label for="password">Telefone</label>
                         <input type="text" name="txtFone" placeholder="Telefone" maxlength="10">
-
                     </div>
                     <div class="input-box">
                         <label for="password">Celular</label>
@@ -102,7 +98,7 @@
                             <button><a href="#">Cadrastar</a> </button>
                         </div>
                         <div class="col">
-                            <button type="button" data-toggle="modal" data-target="#myModal"><a href="#">Tabela</a></button>
+                            <button type="button" data-toggle="modal" data-target="#myModal2"><a href="#">Tabela</a></button>
                         </div>
                     </div>
                 </div>
@@ -112,54 +108,69 @@
 
 
 
-  
-  <!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
+<div class="modal fade bd-example-modal-xl"  id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header" style="width: 100%">
-        <h4 class="modal-title">Cliente</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Lista De Clientes</h5>
+        </button>
       </div>
-
-      <!-- Modal body -->
       <div class="modal-body">
           <table class="table" style="width:100% ;">
-    <thead>
-      <tr>
-                <th>Id</th>
-                <th>Nome </th>
-                <th>Cpf</th>
-                <th>Celular</th>
-                <th>excluir</th>     
-      </tr>
-    </thead>
-    <tbody>
-    @foreach($cliente as $cl)
-      <tr>
-      <td>{{$cl -> idCliente}}</td>
-      <td>{{$cl -> nomeCliente}}</td>
-      <td>{{$cl -> cpfCliente}}</td>
-      <td>{{$cl -> celularCliente}}</td>
-      <td><a class="style-delete" href="/cliente/{{$cl->idCliente}}">excluir</a></td>
+        <thead>
+        <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Cpf</th>
+                    <th>Celular</th>
+                    <th>editar</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($cliente as $cl)
+        <tr>
+        <td>{{$cl -> idCliente}}</td>
+        <td>{{$cl -> nomeCliente}}</td>
+        <td>{{$cl -> emailCliente}}</td>
+        <td>{{$cl -> cpfCliente}}</td>
+        <td>{{$cl -> celularCliente}}</td>
+        <td><a  style=
+        "
+            margin-top: 0.3rem;
+            border: none;
+            background-color: #6c63ff;
+            padding: 0.25rem;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration:none;
+            color:white;
+        " href="/cliente/{{$cl->idCliente}}">excluir</a></td>
 
-      </tr>
-    </tbody>
-    @endforeach
-  </table>
+        </tr>
+        </tbody>
+        @endforeach
+    </table>
   </div>
-
-      <!-- Modal footer -->
-      <div class="continue-button">
-        <button type="button" data-dismiss="modal">Close</button>
+      <div class="modal-footer">
+        <button type="button" 
+        style=
+        "
+            margin-top: 0.3rem;
+            border: none;
+            background-color: #6c63ff;
+            padding: 0.62rem;
+            border-radius: 5px;
+            cursor: pointer;
+            color:white;
+        " 
+        data-dismiss="modal">Fechar</button>
       </div>
-
     </div>
   </div>
 </div>
-</body>
+  
+
 
 
 

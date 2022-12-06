@@ -22,22 +22,20 @@
   </header>
   <div class="l-navbar" id="nav-bar">
     <nav class="nav">
-      <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">BBBootstrap</span> </a>
+      <div> <a href="#" class="nav_logo"> <i class='bx bx-glasses-alt nav_logo-icon'></i> <span class="nav_logo-name">Oakley</span> </a>
         <div class="nav_list"> <a href="/" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i>
             <span class="nav_name">Dashboard</span> </a>
           <a href="/cliente" class="nav_link"> <i class='bx bx-user nav_icon'></i>
             <span class="nav_name">Cliente</span> </a>
-          <a href="/categoria" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Categoria</span> </a> <a href="/contato" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Contato</span> </a> <a href="/produto" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Produto</span> </a> <a href="/pedido" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Pedido</span> </a>
+          <a href="/categoria" class="nav_link"> <i class='bx bx-category nav_icon'></i> <span class="nav_name">Categoria</span> </a> <a href="/produto" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Produto</span> </a> <a href="/pedido" class="nav_link"> <i class='bx bx-store'></i> <span class="nav_name">Pedido</span> </a>
         </div>
       </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
     </nav>
   </div>
   <!--Container Main start-->
-  <div class="height-100 bg-light">
     @yield('content')
 
 
-  </div>
   <script>
     document.addEventListener("DOMContentLoaded", function(event) {
 
