@@ -106,7 +106,7 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Lista De Clientes</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Lista De Pedidos</h5>
         </button>
       </div>
       <div class="modal-body">
@@ -122,11 +122,11 @@
         <tbody>
         @foreach($produto as $cl)
         <tr>
-        <td>{{$cl -> idProduto}}</td>
-        <td>{{$cl -> idCategoria}}</td>
-        <td>{{$cl -> produto}}</td>
-        <td>{{$cl -> valor}}</td>
-        <td><a  style=
+        <td style="border-bottom-width:0;">{{$cl -> idProduto}}</td>
+        <td style="border-bottom-width:0;">{{$cl -> idCategoria}}</td>
+        <td style="border-bottom-width:0;">{{$cl -> produto}}</td>
+        <td style="border-bottom-width:0;">{{$cl -> valor}}</td>
+        <td style="border-bottom-width:0;"><a  style=
         "
             margin-top: 0.3rem;
             border: none;
